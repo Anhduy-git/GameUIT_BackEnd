@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  mongo_db:
+    container_name: mongo_db_container
+    image: mongo:latest
+    restart: always
+    ports:
+      - 8081:27017
+  api:
+    build: .
+    ports:
+      - 3005:3000
+    environment:
+      PORT: 3000
+      MONGODB_URL_DEV: mongodb://mongo_db:27017/gameUIT
+      JWT_SECRET_DEV: ad20126037
+    depends_on:
+      - mongo_db
