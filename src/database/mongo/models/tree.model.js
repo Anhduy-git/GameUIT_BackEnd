@@ -5,31 +5,56 @@ const treeSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
+	description: {
+		type: String
+	},
 	image: {
 		type: String
 	},
+	treeType: {
+		type: Number
+	},
 	leafType: {
-		type: Number,
-		required: true
+		type: Number
 	},
 	habitat: {
-		type: Number,
-		required: true
+		type: Number
+	},
+	irrigationMode: {
+		type: Number
+	},
+	direction: {
+		type: Number
+	},
+	hasFlower: {
+		type: Number
+	},
+	careLevel: {
+		type: Number
+	},
+	sunLevel: {
+		type: Number
+	},
+	treeSize: {
+		type: Number
+	},
+	lifeTime: {
+		type: Number
+	},
+	temperature: {
+		type: Number
+	},
+	humidity: {
+		type: Number
 	},
 	priceMin: {
-		type: Number,
-		required: true
+		type: Number
 	},
 	priceMax: {
-		type: Number,
-		required: true
+		type: Number
 	},
 	sellLocation: {
-		type: String,
-		required: true
-	},
-	otherProperties: {
-		type: [String]
+		type: String
 	}
 });
 
