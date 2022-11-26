@@ -15,13 +15,18 @@ module.exports = function TreeController() {
 		}
 	};
 
-	// [GET] /trees/?page=1&limit=5
+	// [GET] /trees/?page=1&limit=5&color=1&size=2....
 	const getTrees = async (req, res, next) => {
 		try {
-			const { criteria } = req.body;
 			const limit = parseInt(req.query.limit, 10);
 			const page = parseInt(req.query.page, 10);
 			const pagination = { limit, page };
+
+			const criteria = req.query;
+			// remove unecessary properties
+			delete criteria.page;
+			delete criteria.limit;
+
 			const trees = await this.treeService.getTrees(criteria, pagination);
 			res
 				.status(StatusCodes.OK)

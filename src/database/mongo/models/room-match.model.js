@@ -2,36 +2,26 @@ const mongoose = require('mongoose');
 
 const roomMatchSchema = new mongoose.Schema({
 	direction: {
-		type: Number
-	},
-	sizeMin: {
 		type: Number,
 		required: true
 	},
-	sizeMax: {
-		type: String
+	roomType: {
+		type: Number,
+		required: true
 	},
 	roomSizeType: {
 		type: Number,
 		required: true
 	},
-	roomVentilationType: {
+	roomVentilationLevel: {
 		type: Number,
 		required: true
 	},
-	temperatureMin: {
+	temperature: {
 		type: Number,
 		required: true
 	},
-	temperatureMax: {
-		type: Number,
-		required: true
-	},
-	humidityMin: {
-		type: Number,
-		required: true
-	},
-	humidityMax: {
+	humidity: {
 		type: Number,
 		required: true
 	},
@@ -39,12 +29,23 @@ const roomMatchSchema = new mongoose.Schema({
 		type: [
 			{
 				name: String,
+				description: String,
 				image: String,
+				treeType: Number,
 				leafType: Number,
 				habitat: Number,
-				price: Number,
-				sellLocation: String,
-				otherProperties: [String]
+				irrigationMode: Number,
+				direction: Number,
+				hasFlower: Boolean,
+				careLevel: Number,
+				sunLevel: Number,
+				treeSize: Number,
+				lifeTime: Number,
+				temperature: Number,
+				humidity: Number,
+				priceMin: Number,
+				priceMax: Number,
+				sellLocation: String
 			}
 		],
 		required: true

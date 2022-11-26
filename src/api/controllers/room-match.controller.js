@@ -15,13 +15,18 @@ module.exports = function RoomMatchController() {
 		}
 	};
 
-	// [GET] /rooms-match/?page=1&limit=5
+	// [GET] /rooms-match/?page=1&limit=5&direction=0&roomSizeType=1
 	const getRoomsMatch = async (req, res, next) => {
 		try {
-			const { criteria } = req.body;
 			const limit = parseInt(req.query.limit, 10);
 			const page = parseInt(req.query.page, 10);
 			const pagination = { limit, page };
+
+			const criteria = req.query;
+			// remove unecessary properties
+			delete criteria.page;
+			delete criteria.limit;
+
 			const roomsMatch = await this.roomMatchService.getRoomsMatch(
 				criteria,
 				pagination

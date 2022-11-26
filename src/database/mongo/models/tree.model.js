@@ -17,6 +17,9 @@ const treeSchema = new mongoose.Schema({
 	leafType: {
 		type: Number
 	},
+	flowerColor: {
+		type: Number
+	},
 	habitat: {
 		type: Number
 	},
@@ -27,7 +30,7 @@ const treeSchema = new mongoose.Schema({
 		type: Number
 	},
 	hasFlower: {
-		type: Number
+		type: Boolean
 	},
 	careLevel: {
 		type: Number
