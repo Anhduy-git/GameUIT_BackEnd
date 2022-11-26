@@ -1,4 +1,4 @@
-const { UnauthorizedError } = require('../utils/errors');
+const { UnauthorizedError, BadRequestError } = require('../utils/errors');
 const { UserRepository } = require('../database/mongo/repositories');
 const { AuthHelper } = require('../helpers');
 
@@ -22,6 +22,11 @@ module.exports = function AuthService() {
 	};
 
 	const registerUser = async (userData) => {
+		const { username } = userData;
+		const checkUser = await this.userRepository.getUserByUsername(username);
+		if (checkUser) {
+			throw new BadRequestError('User already exists!');
+		}
 		const user = await this.userRepository.createUser(userData);
 		return user;
 	};

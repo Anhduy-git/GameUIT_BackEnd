@@ -6,6 +6,7 @@ const { BadRequestError } = require('../../../utils/errors');
 const userSchema = new mongoose.Schema({
 	username: {
 		type: String,
+		unique: true,
 		required: true
 	},
 	password: {
@@ -36,6 +37,13 @@ const userSchema = new mongoose.Schema({
 		required: true
 	}
 });
+
+// override toJSON method, call with res.send a user
+userSchema.methods.toJSON = function () {
+	const userObject = this.toObject();
+	delete userObject.password;
+	return userObject;
+};
 
 // Hash the plain text password before saving
 userSchema.pre('save', async function (next) {

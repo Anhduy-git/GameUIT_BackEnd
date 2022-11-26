@@ -4,6 +4,18 @@ const StatusCodes = require('../../utils/status-codes');
 
 module.exports = function OrderController() {
 	this.orderService = new OrderService();
+
+	// [POST] /orders
+	const createOrder = async (req, res, next) => {
+		try {
+			const orderData = req.body;
+			await this.orderService.createOrder(orderData);
+			res.status(StatusCodes.OK).json(new Response({ status: true }));
+		} catch (err) {
+			next(err);
+		}
+	};
+
 	// [GET] /orders/?userId=123&page=1&limit=5
 	const getOrders = async (req, res, next) => {
 		try {
@@ -21,6 +33,7 @@ module.exports = function OrderController() {
 	};
 
 	return {
+		createOrder,
 		getOrders
 	};
 };

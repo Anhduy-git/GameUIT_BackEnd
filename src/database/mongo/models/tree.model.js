@@ -1,7 +1,4 @@
 const mongoose = require('mongoose');
-const validator = require('validator');
-const { BadRequestError } = require('../../../utils/errors');
-
 
 const treeSchema = new mongoose.Schema({
 	name: {
@@ -21,15 +18,15 @@ const treeSchema = new mongoose.Schema({
 	},
 	priceMin: {
 		type: Number,
-		required: true		
+		required: true
 	},
 	priceMax: {
 		type: Number,
-		required: true		
+		required: true
 	},
 	sellLocation: {
 		type: String,
-		required: true		
+		required: true
 	},
 	otherProperties: {
 		type: [String]

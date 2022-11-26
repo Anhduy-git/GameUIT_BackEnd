@@ -15,10 +15,6 @@ const orderSchema = new mongoose.Schema({
 		type: String,
 		required: true
 	},
-	orderType: {
-		type: Number,
-		required: true
-	},
 	orderStatus: {
 		type: Number,
 		required: true

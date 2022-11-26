@@ -7,7 +7,7 @@ module.exports = function roomMatchRouter() {
 
 	router
 		.route('/')
-		.get(roomMatchController.getRoomMatch)
+		.get(roomMatchController.getRoomsMatch)
 		.post(roomMatchController.createRoomMatch);
 
 	return router;

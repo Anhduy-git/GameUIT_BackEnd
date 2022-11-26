@@ -1,24 +1,16 @@
 const express = require('express');
 const authRouter = require('./authentication.route');
-const customerRouter = require('./customer.route');
-const freelanceCookRouter = require('./freelance-cook.route');
-const shipperRouter = require('./shipper.route');
-const dishRouter = require('./dish.route');
-const mealRouter = require('./meal.route');
 const orderRouter = require('./order.route');
-const deliveryRouter = require('./delivery.route');
+const roomMatchRouter = require('./room-match.route');
+const treeRouter = require('./tree.route');
 
 module.exports = () => {
 	const router = express.Router();
 
 	router.use('/auth', authRouter());
-	router.use('/customers', customerRouter());
-	router.use('/freelance-cooks', freelanceCookRouter());
-	router.use('/shippers', shipperRouter());
-	router.use('/dishes', dishRouter());
-	router.use('/meals', mealRouter());
 	router.use('/orders', orderRouter());
-	router.use('/deliveries', deliveryRouter());
+	router.use('/rooms-match', roomMatchRouter());
+	router.use('/trees', treeRouter());
 
 	return router;
 };

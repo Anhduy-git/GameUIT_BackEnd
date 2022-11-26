@@ -51,4 +51,4 @@ const roomMatchSchema = new mongoose.Schema({
 	}
 });
 
-module.exports = mongoose.model('Tree', roomMatchSchema);
+module.exports = mongoose.model('RoomMatch', roomMatchSchema);

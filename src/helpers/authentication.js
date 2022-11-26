@@ -1,6 +1,4 @@
 const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
-const otpGenerator = require('otp-generator');
 
 module.exports = function AuthHelper() {
 	const compareHashing = async (password, hashedPassword) => {

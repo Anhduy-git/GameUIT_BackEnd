@@ -1,12 +1,11 @@
 const express = require('express');
 const cors = require('cors');
-const socketio = require('socket.io');
 const Emitter = require('events');
 const routes = require('./api/routes');
 const { errorHandlerMiddleware } = require('./api/middlewares');
 const { NotFoundError } = require('./utils/errors');
 
-const API_PREFIX = '/api/v1';
+const API_PREFIX = '/api';
 
 const app = express();
 
@@ -34,7 +33,5 @@ app.use((req, res, next) => {
 
 // Common Error Handler
 app.use(errorHandlerMiddleware);
-
-
 
 module.exports = app;

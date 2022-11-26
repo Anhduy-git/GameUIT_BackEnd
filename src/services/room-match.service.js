@@ -4,8 +4,7 @@ module.exports = function RoomMatchService() {
 	this.roomMatchRepository = new RoomMatchRepository();
 
 	const createRoomMatch = async (roomData) => {
-		const roomMatch = await this.roomMatchRepository.createRoomMatch(roomData);
-		return roomMatch;
+		await this.roomMatchRepository.createRoomMatch(roomData);
 	};
 
 	const getRoomsMatch = async (criteria, pagination) => {
