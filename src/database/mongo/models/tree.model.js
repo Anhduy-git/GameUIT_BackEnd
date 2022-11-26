@@ -12,43 +12,67 @@ const treeSchema = new mongoose.Schema({
 		type: String
 	},
 	treeType: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	leafType: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	flowerColor: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 4
 	},
 	habitat: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	irrigationMode: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	direction: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 3
 	},
 	hasFlower: {
 		type: Boolean
 	},
 	careLevel: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	sunLevel: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	treeSize: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	lifeTime: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	temperature: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	humidity: {
-		type: Number
+		type: Number,
+		min: 0,
+		max: 2
 	},
 	priceMin: {
 		type: Number
@@ -58,6 +82,20 @@ const treeSchema = new mongoose.Schema({
 	},
 	sellLocation: {
 		type: String
+	},
+	matchingRooms: {
+		type: [
+			{
+				image: String,
+				direction: Number,
+				roomType: Number,
+				roomSizeType: Number,
+				roomVentilationLevel: Number,
+				temperature: Number,
+				humidity: Number
+			}
+		],
+		required: true
 	}
 });
 

@@ -9,6 +9,7 @@ module.exports = function dishRouter() {
 		.route('/')
 		.get(treeController.getTrees)
 		.post(treeController.createTree);
+	router.route('/:id').get(treeController.getTree);
 
 	return router;
 };

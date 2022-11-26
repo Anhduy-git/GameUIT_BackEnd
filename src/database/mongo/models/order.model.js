@@ -16,7 +16,9 @@ const orderSchema = new mongoose.Schema({
 	},
 	orderStatus: {
 		type: Number,
-		required: true
+		required: true,
+		min: 0,
+		max: 2
 	},
 	orderDate: {
 		type: Date,

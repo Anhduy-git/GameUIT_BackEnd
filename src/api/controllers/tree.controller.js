@@ -36,8 +36,23 @@ module.exports = function TreeController() {
 		}
 	};
 
+	// [GET] /trees/:id
+	const getTree = async (req, res, next) => {
+		try {
+			const { id } = req.params;
+
+			const tree = await this.treeService.getTree(id);
+			res
+				.status(StatusCodes.OK)
+				.json(new Response({ status: true, content: tree }));
+		} catch (err) {
+			next(err);
+		}
+	};
+
 	return {
 		createTree,
-		getTrees
+		getTrees,
+		getTree
 	};
 };

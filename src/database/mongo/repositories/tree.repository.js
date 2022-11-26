@@ -15,8 +15,17 @@ module.exports = function UserRepository() {
 		return trees;
 	};
 
+	const getTree = async (id) => {
+		const tree = await Tree.find({
+			_id: id
+		});
+
+		return tree;
+	};
+
 	return {
 		createTree,
-		getTrees
+		getTrees,
+		getTree
 	};
 };
