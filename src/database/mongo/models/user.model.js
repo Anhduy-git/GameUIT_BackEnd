@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+const bcrypt = require('bcryptjs');
 const { BadRequestError } = require('../../../utils/errors');
-
 
 const userSchema = new mongoose.Schema({
 	username: {
@@ -37,4 +37,12 @@ const userSchema = new mongoose.Schema({
 	}
 });
 
+// Hash the plain text password before saving
+userSchema.pre('save', async function (next) {
+	if (this.isModified('password')) {
+		this.password = await bcrypt.hash(this.password, 8);
+	}
+
+	next(); // go to save the user
+});
 module.exports = mongoose.model('User', userSchema);

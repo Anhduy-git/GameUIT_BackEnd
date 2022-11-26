@@ -8,19 +8,7 @@ module.exports = function AuthHelper() {
 		return valid;
 	};
 
-	const generateAuthToken = async (userID, secret) => {
-		const token = await jwt.sign({ id: userID.toString() }, secret);
-		return token;
-	};
-
-	const verifyToken = async (token, secret) => {
-		const valid = await jwt.verify(token, secret);
-		return valid;
-	};
-
 	return {
-		compareHashing,
-		generateAuthToken,
-		verifyToken
+		compareHashing
 	};
 };

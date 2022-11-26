@@ -22,7 +22,7 @@ module.exports = function RoomMatchController() {
 			const limit = parseInt(req.query.limit, 10);
 			const page = parseInt(req.query.page, 10);
 			const pagination = { limit, page };
-			const roomsMatch = await this.roomMatchService.getRoomMatch(
+			const roomsMatch = await this.roomMatchService.getRoomsMatch(
 				criteria,
 				pagination
 			);

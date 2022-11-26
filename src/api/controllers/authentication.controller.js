@@ -20,8 +20,10 @@ module.exports = function AuthController() {
 	const registerUser = async (req, res, next) => {
 		try {
 			const userData = req.body;
-			await this.authService.registerUser(userData);
-			res.status(StatusCodes.OK).json(new Response({ status: true }));
+			const user = await this.authService.registerUser(userData);
+			res
+				.status(StatusCodes.OK)
+				.json(new Response({ status: true, content: { user } }));
 		} catch (err) {
 			next(err);
 		}
